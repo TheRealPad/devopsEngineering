@@ -10,7 +10,7 @@
 
 Hello I'm Pierre-Alexandre Delgado, a software engineer from France and this repository will contain a self taught formation in the DevOps Engineering.
 
-- [ ] [Git/Github](#gitgithub)
+- [x] [Git/Github](#gitgithub)
 - [x] [Docker](#docker)
 - [ ] [Kubernetes](#kubernetes)
 - [ ] [Terraform](#terraform)
