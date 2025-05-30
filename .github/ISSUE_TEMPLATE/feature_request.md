@@ -1,53 +1,20 @@
-name: Feature Request
-description: Suggest a new feature or enhancement
-title: "[Feature]: "
-labels: [enhancement]
-assignees: []
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
 
-body:
-  - type: markdown
-    attributes:
-      value: |
-        💡 **Thank you for suggesting a feature!**  
-        Please fill out the details below to help us understand your request.
+---
 
-  - type: input
-    id: summary
-    attributes:
-      label: Feature Summary
-      description: Briefly describe the feature you would like to see.
-      placeholder: Add dark mode support, export to PDF, etc.
-    validations:
-      required: true
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-  - type: textarea
-    id: motivation
-    attributes:
-      label: Why is this feature important?
-      description: What problem does it solve? Why is it valuable?
-    validations:
-      required: true
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
 
-  - type: textarea
-    id: solution
-    attributes:
-      label: Proposed Solution
-      description: If you have ideas for how this could be implemented, describe them here.
-    validations:
-      required: false
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
 
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: Alternatives Considered
-      description: Have you tried other workarounds or existing features?
-    validations:
-      required: false
-
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      options:
-        - label: I agree to follow this project's [Code of Conduct](../CODE_OF_CONDUCT.md)
-          required: true
+**Additional context**
+Add any other context or screenshots about the feature request here.
