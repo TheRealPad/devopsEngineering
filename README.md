@@ -1,3 +1,11 @@
+![Latest Release](https://img.shields.io/github/v/release/TheRealPad/devopsEngineering?label=latest%20release)
+![Build Status](https://github.com/TheRealPad/devopsEngineering/actions/workflows/ci.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Issues](https://img.shields.io/github/issues/TheRealPad/devopsEngineering)
+![Repo Size](https://img.shields.io/github/repo-size/TheRealPad/devopsEngineering)
+![Contributors](https://img.shields.io/github/contributors/TheRealPad/devopsEngineering)
+![Last Commit](https://img.shields.io/github/last-commit/TheRealPad/devopsEngineering)
+
 # DevOps Engineering
 
 Hello I'm Pierre-Alexandre Delgado, a software engineer from France and this repository will contain a self taught formation in the DevOps Engineering.
