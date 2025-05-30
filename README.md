@@ -6,8 +6,8 @@ Hello I'm Pierre-Alexandre Delgado, a software engineer from France and this rep
 - [x] [Docker](#docker)
 - [ ] [Kubernetes](#kubernetes)
 - [ ] [Terraform](#terraform)
-- [ ] [CI/CD](cicd-1)
-- [ ] [Observabilite & Security](observabilite--security)
+- [ ] [CI/CD](#cicd-1)
+- [ ] [Observabilite & Security](#observabilite--security)
 - [ ] [Cloud Providers](#cloud-providers)
 
 ## Git/Github
