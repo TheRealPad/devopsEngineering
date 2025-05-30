@@ -1,6 +1,6 @@
 ![Latest Release](https://img.shields.io/github/v/release/TheRealPad/devopsEngineering?label=latest%20release)
 ![Build Status](https://github.com/TheRealPad/devopsEngineering/actions/workflows/ci.yml/badge.svg)
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Issues](https://img.shields.io/github/issues/TheRealPad/devopsEngineering)
 ![Repo Size](https://img.shields.io/github/repo-size/TheRealPad/devopsEngineering)
 ![Contributors](https://img.shields.io/github/contributors/TheRealPad/devopsEngineering)
