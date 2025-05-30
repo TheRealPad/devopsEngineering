@@ -6,7 +6,6 @@
 ![Contributors](https://img.shields.io/github/contributors/TheRealPad/devopsEngineering)
 ![Last Commit](https://img.shields.io/github/last-commit/TheRealPad/devopsEngineering)
 
-test
 # DevOps Engineering
 
 Hello I'm Pierre-Alexandre Delgado, a software engineer from France and this repository will contain a self taught formation in the DevOps Engineering.
@@ -22,6 +21,14 @@ Hello I'm Pierre-Alexandre Delgado, a software engineer from France and this rep
 ## Git/Github
 
 Create a Git workflow for code review
+
+### Issues and Pull requests
+
+You can find templates for pull requests and issues in the **.github/**
+
+### Branch protection
+
+There are branch protections on **main** and **develop** to avoid push on it or branch deletion
 
 ### Pipeline
 
