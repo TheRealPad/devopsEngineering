@@ -2,17 +2,33 @@
 
 Hello I'm Pierre-Alexandre Delgado, a software engineer from France and this repository will contain a self taught formation in the DevOps Engineering.
 
-- [ ] Git/Github
-- [x] Docker
-- [ ] Kubernetes
-- [ ] Terraform
-- [ ] CI/CD
-- [ ] Observabilite & Securite
-- [ ] Cloud Providers
+- [ ] [Git/Github](#gitgithub)
+- [x] [Docker](#docker)
+- [ ] [Kubernetes](#kubernetes)
+- [ ] [Terraform](#terraform)
+- [ ] [CI/CD](cicd-1)
+- [ ] [Observabilite & Security](observabilite--security)
+- [ ] [Cloud Providers](#cloud-providers)
 
 ## Git/Github
 
 Create a Git workflow for code review
+
+### Pipeline
+
+#### CI/CD
+
+When you push or make a PR to main or develop, this pipeline automatically analyse, test, build and deploy the code
+
+#### Release
+
+When you create a tag in the form "v{tag_version}" the pipeline automatically generate the release
+
+```bash
+# Exemple
+git tag -a v1.0.1 -m "Release version 1.0.1"
+git push origin v1.0.1
+```
 
 ## Docker
 
@@ -40,7 +56,7 @@ Create an infra on AWS (EC2, S3, VPC) with Terraform
 
 Full pipeline to build Docker + deploy on Kubernetes
 
-## Observabilite & Securite
+## Observabilite & Security
 
 Create a stack for monitoring + scannnig the Docker image
 
