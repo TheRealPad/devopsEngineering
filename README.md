@@ -65,6 +65,18 @@ You can access the [poll](http://localhost:5050/) and the [results](http://local
 
 Deploy all app's services with Helm on minikube
 
+How to use:
+```bash
+cd k8s/
+# To delete the existing resources
+./stop.sh
+# To create the existing resources and start both frontend applications
+./start.sh
+# If there is an error when start the application with the script
+kubectl port-forward service/poll-service 5050:80
+kubectl port-forward service/result-service 5010:80
+```
+
 ## Terraform
 Create an infra on AWS (EC2, S3, VPC) with Terraform
 
