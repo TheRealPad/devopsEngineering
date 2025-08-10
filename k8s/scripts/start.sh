@@ -3,34 +3,40 @@
 echo "--- Starting new deployment ---"
 
 echo "Applying ConfigMaps and Secrets..."
-kubectl apply -f db-credentials-secret.yaml
-kubectl apply -f db-init-script-configmap.yaml
+kubectl apply -f ../db-credentials-secret.yaml
+kubectl apply -f ../db-init-script-configmap.yaml
 
 echo "Applying PersistentVolumeClaims..."
-kubectl apply -f db-persistentvolumeclaim.yaml
+kubectl apply -f ../db-persistentvolumeclaim.yaml
 
 echo "Applying Services..."
-kubectl apply -f poll-service.yaml
-kubectl apply -f redis-service.yaml
-kubectl apply -f db-service.yaml
-kubectl apply -f result-service.yaml
+kubectl apply -f ../poll-service.yaml
+kubectl apply -f ../redis-service.yaml
+kubectl apply -f ../db-service.yaml
+kubectl apply -f ../esult-service.yaml
 
 echo "Applying Deployments and StatefulSets..."
-kubectl apply -f poll-deployment.yaml
-kubectl apply -f redis-deployment.yaml
-kubectl apply -f worker-deployment.yaml
-kubectl apply -f db-statefulset.yaml
-kubectl apply -f result-deployment.yaml
+kubectl apply -f ../poll-deployment.yaml
+kubectl apply -f ../redis-deployment.yaml
+kubectl apply -f ../worker-deployment.yaml
+kubectl apply -f ../db-statefulset.yaml
+kubectl apply -f ../result-deployment.yaml
 
 echo "Applying Ingresses..."
-kubectl apply -f poll-ingress.yaml
-kubectl apply -f result-ingress.yaml
+kubectl apply -f ../poll-ingress.yaml
+kubectl apply -f ../result-ingress.yaml
+
+echo "Applying Horizontal Pod Autoscaler (HPA)..."
+kubectl apply -f ../poll-hpa.yaml
+kubectl apply -f ../worker-hpa.yaml
+kubectl apply -f ../result-hpa.yaml
 
 echo "--- Deployment process complete. ---"
 echo "Checking status of deployments, pods, and services..."
 kubectl get deployments
 kubectl get pods
 kubectl get services
+
 
 # --- Port-forwarding section ---
 

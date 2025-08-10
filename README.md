@@ -76,6 +76,7 @@ cd k8s/
 kubectl port-forward service/poll-service 5050:80
 kubectl port-forward service/result-service 5010:80
 ```
+You can find the other actions [here](documentation/kubernetes.md)
 
 ## Terraform
 Create an infra on AWS (EC2, S3, VPC) with Terraform
