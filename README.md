@@ -69,9 +69,9 @@ How to use:
 ```bash
 cd k8s/
 # To delete the existing resources
-./stop.sh
+./stop.sh dev|test|prod
 # To create the existing resources and start both frontend applications
-./start.sh
+./start.sh dev|test|prod
 # If there is an error when start the application with the script
 kubectl port-forward service/poll-service 5050:80
 kubectl port-forward service/result-service 5010:80

@@ -1,0 +1,88 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cluster-reader
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-reader
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: metrics-reader
+rules:
+  - apiGroups: ["metrics.k8s.io"]
+    resources: ["pods", "nodes"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-reader-binding
+subjects:
+  - kind: ServiceAccount
+    name: cluster-reader
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: cluster-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: metrics-reader-binding
+subjects:
+  - kind: ServiceAccount
+    name: cluster-reader
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: metrics-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: frequent-report
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: cluster-reader
+          containers:
+            - name: reporter
+              image: bitnami/kubectl:latest
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  echo "===== Cluster Report ====="
+                  date
+                  echo "--- Pods ---"
+                  kubectl get pods -A
+                  echo "--- Deployments ---"
+                  kubectl get deployments -A
+                  echo "--- Services ---"
+                  kubectl get services -A
+                  echo "--- Pod CPU/Memory Usage ---"
+                  kubectl top pods -A || echo "metrics-server not available"
+                  echo "--- Node CPU/Memory Usage ---"
+                  kubectl top nodes || echo "metrics-server not available"
+                  echo "--------------------------"
+          restartPolicy: OnFailure

@@ -1,10 +1,23 @@
 #!/bin/bash
 
+if [ -z "$1" ]; then
+  echo "Usage: $0 <dev|test|prod>"
+  exit 1
+fi
+
+ENV="$1"
+
+if [[ "$ENV" != "dev" && "$ENV" != "test" && "$ENV" != "prod" ]]; then
+  echo "Error: environment must be one of: dev, test, prod"
+  exit 1
+fi
+
 echo "--- Starting new deployment ---"
 
 echo "Applying ConfigMaps and Secrets..."
-kubectl apply -f ../db-credentials-secret.yaml
-kubectl apply -f ../db-init-script-configmap.yaml
+kubectl apply -f ../config/db-init-script-configmap-$ENV.yaml
+kubectl apply -f ../config/db-credentials-sealed-$ENV.yaml
+kubectl apply -f ../config/deployment-configmap-$ENV.yaml
 
 echo "Applying PersistentVolumeClaims..."
 kubectl apply -f ../db-persistentvolumeclaim.yaml
@@ -13,7 +26,7 @@ echo "Applying Services..."
 kubectl apply -f ../poll-service.yaml
 kubectl apply -f ../redis-service.yaml
 kubectl apply -f ../db-service.yaml
-kubectl apply -f ../esult-service.yaml
+kubectl apply -f ../result-service.yaml
 
 echo "Applying Deployments and StatefulSets..."
 kubectl apply -f ../poll-deployment.yaml
@@ -30,6 +43,9 @@ echo "Applying Horizontal Pod Autoscaler (HPA)..."
 kubectl apply -f ../poll-hpa.yaml
 kubectl apply -f ../worker-hpa.yaml
 kubectl apply -f ../result-hpa.yaml
+
+echo "Applying cron jobs..."
+kubectl apply -f ../cron/cron-report-generation.yaml
 
 echo "--- Deployment process complete. ---"
 echo "Checking status of deployments, pods, and services..."

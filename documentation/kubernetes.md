@@ -12,11 +12,11 @@ minikube dashboard
 When you need to do a rolling update and you don't want a down time for your user, you can use the following commands:
 ```bash
 # use a new image
-kubectl set image deployment/<name-of-deployment> <name-of-conteneur>=<new-image>:<tag>
+kubectl set image deployment/<name-of-deployment> <name-of-conteneur>=<new-image>:<tag> # kubectl set image deployment/result-app result=therealpad/formationchatgpt-result:pad
 # watch the status
-kubectl rollout status deployment/<name-of-deployment>
+kubectl rollout status deployment/<name-of-deployment> # kubectl rollout status deployment/result-app
 # cancel
-kubectl rollout undo deployment/<name-of-deployment>
+kubectl rollout undo deployment/<name-of-deployment> # kubectl rollout undo deployment/result-app
 ```
 
 ## Horizontal Pod Autoscaler (HPA)
